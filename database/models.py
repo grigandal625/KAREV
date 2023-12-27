@@ -27,6 +27,7 @@ class Administrator(models.Model):
     univercity = models.CharField(max_length=255, verbose_name='университет')
     post = models.CharField(max_length=255, verbose_name='должность')
     access_level = models.IntegerField(choices=AccessLevelChoices.choices, verbose_name='уровень доступа')
+    manages = models.ManyToManyField(Account, verbose_name='управляет', related_name='managed_by')
 
     class Meta:
         db_table = 'administrator'
